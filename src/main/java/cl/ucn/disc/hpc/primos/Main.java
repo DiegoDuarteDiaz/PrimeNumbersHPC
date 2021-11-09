@@ -35,4 +35,34 @@ public class Main
         final int attempts = 20;
         final int maxTimeMinutes = 5;
     }
+
+    /**
+     * Check if a number is prime.
+     * @param n the number.
+     * @return true if the number is prime.
+     */
+    private static boolean isPrime(final long n){
+        // No prime
+        if (n <= 0) {
+            throw new IllegalArgumentException("Error in n: can't process negative numbers..");
+        }
+        // One isn't prime
+        if (n == 1){
+            return false;
+        }
+        if (n == 2){
+            return false;
+        }
+        if (n % 2 == 0){
+            return false;
+        }
+        // Testing the primality
+        for (long i = 3; (i*i) < n; i += 2){
+            // n is divisible by i
+            if (n % i == 0){
+                return false;
+            }
+        }
+        return true;
+    }
 }
